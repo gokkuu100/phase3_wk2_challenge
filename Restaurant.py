@@ -18,12 +18,15 @@ class Restaurant:
 
     def get_customers(self):
         return self.customers
-
     
-    pass
+    def average_star_rating(self):
+        pass
 
 rest1 = Restaurant("Kingfisher")
 rest1.add_review(8)
+rest1.add_review(10)
+rest1.add_review(8)
+
 rest1.add_customer("Fabz")
 rest1.add_customer("Gokue")
 

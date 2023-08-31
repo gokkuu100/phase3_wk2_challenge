@@ -1,8 +1,11 @@
+from Restaurant import Restaurant
+from Review import Review
 class Customer:
     def __init__(self,fname,lname):
         self.fname = fname
         self.lname = lname
         self.restaurants = []
+        self.reviews = []
 
     def given_name(self):
         return self.fname
@@ -22,18 +25,12 @@ class Customer:
     def add_restaurants(self, new_restaurant):
         self.restaurants.append(new_restaurant)
 
-    def get_restaurants(self):
-        return self.restaurants
-    pass
+    def num_reviews(self):
+        return len(self.reviews)
+        pass
 
 
 customer = Customer("Ken", "Walibora")
 print(customer.full_name())
-
-customer.add_restaurants("Milan")
-customer.add_restaurants("K1")
-customer.add_restaurants("Brew Bistro")
-
-
 
 print(customer.get_restaurants())
