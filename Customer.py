@@ -1,36 +1,49 @@
-from Restaurant import Restaurant
-from Review import Review
 class Customer:
-    def __init__(self,fname,lname):
-        self.fname = fname
-        self.lname = lname
+    all_customers = []
+
+    def __init__(self, given_name, family_name):
+        self.given_name = given_name
+        self.family_name = family_name
         self.restaurants = []
         self.reviews = []
+        Customer.all_customers.append(self)
 
-    def given_name(self):
-        return self.fname
-    
     def set_given_name(self, new_given_name):
-        self.fname = new_given_name
+        self.given_name = new_given_name
 
-    def family_name(self):
-        return self.lname
-    
     def set_family_name(self, new_family_name):
-        self.lname = new_family_name
-    
+        self.family_name = new_family_name
+
     def full_name(self):
-        return self.fname + " " + self.lname
-    
-    def add_restaurants(self, new_restaurant):
+        return f"{self.given_name} {self.family_name}"
+
+    @classmethod
+    def given_name(cls, customer):
+        return customer.given_name
+
+    @classmethod
+    def family_name(cls, customer):
+        return customer.family_name
+
+    @classmethod
+    def all(cls):
+        return cls.all_customers
+
+    def add_restaurant(self, new_restaurant):
         self.restaurants.append(new_restaurant)
 
     def num_reviews(self):
         return len(self.reviews)
-        pass
-
 
 customer = Customer("Ken", "Walibora")
 print(customer.full_name())
 
-print(customer.get_restaurants())
+customer.set_given_name("Prince")
+customer.set_family_name("Hope")
+
+print(customer.given_name)  
+print(customer.family_name) 
+
+all_customers = Customer.all()
+for customer in all_customers:
+    print(customer.full_name())
